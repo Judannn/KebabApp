@@ -1,0 +1,21 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TopKebab.ViewModels;
+using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
+
+namespace TopKebab.Views
+{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class LoadingPage : ContentPage
+    {
+        public LoadingPage()
+        {
+            InitializeComponent();
+            this.BindingContext = new LoadingViewModel();
+        }
+    }
+}

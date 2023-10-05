@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell 
+        xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+        material:MaterialNavigationPage.AppBarColor="#2c3e50"
+        material:MaterialNavigationPage.AppBarTitleTextFontFamily="Roboto"
+        material:MaterialNavigationPage.AppBarTitleTextFontSize="14"
+        material:MaterialNavigationPage.StatusBarColor="#1B3147"
+        material:MaterialNavigationPage.AppBarTitleTextAlignment="Start"
+        xmlns="http://xamarin.com/schemas/2014/forms" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:local="clr-namespace:TopKebab.Views"
+        Title="TopKebab"
+        x:Class="TopKebab.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="white" />
+                <Setter Property="Shell.ForegroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TitleColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="{StaticResource TextOnPrimary}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="{StaticResource TextOnPrimary}"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="{StaticResource TextOnPrimary}"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="{StaticResource TextOnPrimary}"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent Title="Map" Icon="icon_about.png" Route="MapPage" ContentTemplate="{DataTemplate local:MapPage}"/>
+        <ShellContent Title="Favourites" Icon="icon_feed.png" Route="FavouritesPage" ContentTemplate="{DataTemplate local:FavouritesPage}" />
+        <ShellContent Title="Settings" Icon="icon_feed.png" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
+    </TabBar>
+
+    <!--
+        If you would like to navigate to this content you can do so by calling
+        await Shell.Current.GoToAsync("//LoginPage");
+    -->
+    <TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoadingPage}" />
+    </TabBar>
+
+
+</Shell>
